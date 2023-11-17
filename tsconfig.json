@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    // папка, куда собираем код. в данном случае не используется, т.к. сборка производится вебпаком
+    "outDir": "./dist/",
+    // подсвечивает все места, где явно не используется тип
+    "noImplicitAny": true,
+    "module": "ESNext",
+    // в какую спецификацию компилируем
+    "target": "ES5",
+    "jsx": "react-jsx",
+    // компилятор будет обрабатывать не только ts файлы, но и JS файлы
+    "allowJs": true,
+    "moduleResolution": "node",
+    // для абсолютного импорта
+    "baseUrl": ".",
+    // Позволяем работать с пакетами, которые использую commonJS (require) как с обычными пакетами с помощью import
+    "esModuleInterop": true,
+    //    Если какая-то библиотека не имеет default import, то лоадеры вроде ts-loader или babel-loader автоматически их создадут. т.е. вместо import * as smth, можно будет писать import React from 'react'
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
