@@ -11,8 +11,14 @@
     // компилятор будет обрабатывать не только ts файлы, но и JS файлы
     "allowJs": true,
     "moduleResolution": "node",
+    "strictNullChecks": true,
     // для абсолютного импорта
     "baseUrl": ".",
+    "paths": {
+      "*": [
+        "./src/*"
+      ]
+    },
     // Позволяем работать с пакетами, которые использую commonJS (require) как с обычными пакетами с помощью import
     "esModuleInterop": true,
     //    Если какая-то библиотека не имеет default import, то лоадеры вроде ts-loader или babel-loader автоматически их создадут. т.е. вместо import * as smth, можно будет писать import React from 'react'
