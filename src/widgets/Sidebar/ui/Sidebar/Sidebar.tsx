@@ -21,6 +21,7 @@ const Sidebar = ({ className }: SidebarProps): JSX.Element => {
         className
       ])}
     >
+      {/* eslint-disable-next-line i18next/no-literal-string */}
       <button onClick={onToggle}>toggle</button>
       <div className={cls.switchers}>
         <ThemeSwitcher />
