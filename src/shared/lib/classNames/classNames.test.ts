@@ -1,4 +1,4 @@
-import { classNames } from './classNames'
+import { classNames } from 'shared/lib/classNames/classNames'
 
 describe('classNames', function () {
   test('with only first param', () => {
@@ -27,6 +27,7 @@ describe('classNames', function () {
   })
   test('with additional class and mods', () => {
     expect(
+    // @ts-ignore
       classNames('someClass', { hovered: true, scrollable: undefined }, [
         'class1',
         'class2'

@@ -2,10 +2,9 @@
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
+import path from 'path'
 
-import type { Config } from 'jest'
-
-const config: Config = {
+const config = {
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
 
@@ -14,6 +13,10 @@ const config: Config = {
 
   // An array of regexp pattern strings used to skip coverage collection
   coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+
+  modulePaths: [
+    '<rootDir>src'
+  ],
 
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: ['node_modules'],
@@ -36,7 +39,14 @@ const config: Config = {
   // The glob patterns Jest uses to detect test files
   testMatch: [
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
-  ]
+  ],
+
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+  }
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,

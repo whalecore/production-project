@@ -7,7 +7,7 @@ import {
 
 interface UseThemeResult {
   toggleTheme: () => void
-  theme: AppTheme
+  theme?: AppTheme
 }
 
 export function useTheme (): UseThemeResult {
@@ -15,7 +15,7 @@ export function useTheme (): UseThemeResult {
 
   const toggleTheme = useCallback(() => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
+    setTheme?.(newTheme)
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
   }, [setTheme, theme])
 
