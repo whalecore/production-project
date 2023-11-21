@@ -1,11 +1,11 @@
-import React, { Suspense, useEffect } from 'react'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { AppRouter } from 'app/router'
+import React, { Suspense } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-
-import './styles/index.scss'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
+
+import './styles/index.scss'
 
 const App = (): JSX.Element => {
   const { theme } = useTheme()
