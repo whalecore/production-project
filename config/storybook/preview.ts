@@ -1,7 +1,4 @@
-import type { Preview } from '@storybook/react'
-import { StyleDecorator } from './decorators/StyleDecorator'
-
-const preview: Preview = {
+const preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -10,10 +7,7 @@ const preview: Preview = {
         date: /Date$/i
       }
     }
-  },
-  decorators: [
-    StyleDecorator
-  ]
+  }
 }
 
 export default preview
