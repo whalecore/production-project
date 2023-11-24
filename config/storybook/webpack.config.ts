@@ -1,5 +1,6 @@
 import path from 'path'
-import webpack from 'webpack'
+import type webpack from 'webpack'
+import { type RuleSetRule } from 'webpack'
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders'
 import { type BuildPaths } from '../build/types/config'
 
@@ -14,16 +15,20 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config.resolve?.modules?.push(paths.src)
   config.resolve?.extensions?.push('.ts', '.tsx')
 
-  config.module?.rules?.push(buildCssLoaders(true))
-
-  config.plugins = [
   // @ts-ignore
-    ...config.plugins.filter(plugin => plugin.constructor.name !== 'IgnorePlugin'),
-    new webpack.IgnorePlugin({
-      resourceRegExp: /react-dom\/client$/,
-      contextRegExp: /(app\/react|app\\react|@storybook\/react|@storybook\\react)/
-    })
-  ]
+  config.module.rules = config.module?.rules?.map((rule: RuleSetRule) => {
+    if (/svg/.test(rule.test as string)) {
+      return { ...rule, exclude: /\.svg/ }
+    }
+
+    return rule
+  })
+
+  config.module?.rules?.push({
+    test: /\.svg$/,
+    use: ['@svgr/webpack']
+  })
+  config.module?.rules?.push(buildCssLoaders(true))
 
   return config
 }

@@ -6,9 +6,10 @@ const config = {
     '@storybook/addon-interactions',
     '@storybook/addon-styling-webpack'
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: 'webpack5'
-  }
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {}
+  },
+  core: {}
 }
 export default config

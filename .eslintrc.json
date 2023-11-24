@@ -29,6 +29,8 @@
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/prefer-ts-expect-error": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
+    "react/display-name": "off",
+    "@typescript-eslint/prefer-includes": "off",
     "react/jsx-curly-brace-presence": [
       "warn",
       {
