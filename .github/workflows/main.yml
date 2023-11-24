@@ -29,4 +29,4 @@ jobs:
       - name: unit tests
         run: npm run test:unit
       - name: ui tests
-        run: npm run test:ui
+        run: npm run storybook:build && npm run test:ui:build
