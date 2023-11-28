@@ -13,18 +13,7 @@ const Navbar = ({ className }: NavbarProps): JSX.Element => {
   const { t } = useTranslation()
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
-      <div className={cls.links}>
-        <AppLink
-          className={cls.mainLink}
-          theme={AppLinkTheme.SECONDARY}
-          to="/"
-        >
-          {t('Главная')}
-        </AppLink>
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/about">
-          {t('О сайте')}
-        </AppLink>
-      </div>
+      <div className={cls.links} />
     </div>
   )
 }
